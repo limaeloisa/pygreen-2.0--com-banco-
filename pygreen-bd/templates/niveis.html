@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Página de Módulos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="pagina-modulos">
+  <header>
+    <h1>Logo Pygreen</h1>
+    <p>Nome</p>
+  </header>
+
+  <ul class="modulos">
+{% for i in range(1,6) %}
+<li class="modulo">
+  <a href="{{ url_for('modulo', num=i) }}">
+    <img src="{{ url_for('static', filename='img/mudinha-' ~ i ~ '.png') }}" alt="Módulo {{ i }}">
+    <figcaption>Módulo {{ i }}</figcaption>
+  </a>
+</li>
+{% endfor %}
+  </ul>
+</body>
+</html>

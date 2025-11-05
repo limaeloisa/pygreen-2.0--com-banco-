@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body class="pagina-login">
+  <main class="login-container">
+    <section aria-labelledby="titulo-cadastro">
+      <h1 id="titulo-cadastro">Cadastro</h1>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <p class="flash {{ category }}">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form action="{{ url_for('cadastro') }}" method="post">
+        <fieldset>
+          <legend>Informações Pessoais</legend>
+
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required />
+
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required />
+        </fieldset>
+
+        <div class="botao-final">
+          <button type="submit">Criar conta</button>
+        </div>
+      </form>
+
+      <p>Já tem conta? <a href="{{ url_for('login') }}">Faça login</a></p>
+    </section>
+  </main>
+</body>
+</html>

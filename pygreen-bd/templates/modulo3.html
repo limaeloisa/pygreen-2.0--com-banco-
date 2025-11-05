@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Módulo {{ num }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>🌿 Bem-vindo ao Módulo {{ num }}</h1>
+  <p>Aqui vai o conteúdo do módulo {{ num }}.</p>
+
+  <a href="{{ url_for('niveis') }}">⬅ Voltar aos níveis</a>
+</body>
+</html>
